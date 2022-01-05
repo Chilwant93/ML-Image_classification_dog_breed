@@ -21,15 +21,15 @@ To offer transfer learning to the CNN, a pre-trained ResNet-50 model was employe
 "learning_rate": ContinuousParameter(0.001, 0.1),
 "batch-size": CategoricalParameter(32, 64, 128, 256, 512)
 The screenshots below show the results of completed training jobs as well as the hyperparameter values derived from the best tuning job.
+![alt text](https://github.com/LittleAlchemy/ML-Image_classification_dog_breed/raw/main/screenshots/training%20jobs.png?raw=true)
+![alt text](https://github.com/LittleAlchemy/ML-Image_classification_dog_breed/raw/main/screenshots/hyperparameter%20tuning.png?raw=true)
+![alt text](https://github.com/LittleAlchemy/ML-Image_classification_dog_breed/raw/main/screenshots/best%20training%20job.png?raw=true)
+![alt text](https://github.com/LittleAlchemy/ML-Image_classification_dog_breed/raw/main/screenshots/best%20trinng%20job%20log.png?raw=true)
 
- 
-
-
- 
- 
  
 ## Debugging and Profiling
 After finding the optimum hyperparameters, a new model was generated with SageMaker debugging and profiling facilities to track and diagnose any model faults. SMDebug hooks for PyTorch with the TRAIN and EVAL modes were added to the train and test functions, respectively, in the train model.py script. The SMDebug hook was built and registered to the model in the main method. The train and test functions both took the hook as an argument. The train and deploy notebook was used to set up debugger rules and hook settings. The SageMaker profiler may be used to track instance resources such as CPU and GPU memory use. To train the mode, a profiler and debugger settings were added to the estimator. 
+![alt text](https://github.com/LittleAlchemy/ML-Image_classification_dog_breed/raw/main/screenshots/graph.png?raw=true)
 
 ### Results
 During the training of the model, certain difficulties with Overtraining, and over fitting were discovered. The summary is provided in profiler report. 
